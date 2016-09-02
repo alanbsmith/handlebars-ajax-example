@@ -3,19 +3,28 @@
   <head>
     <meta charset="utf-8">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="base.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script id="handlebars-demo" type="text/x-handlebars-template">
-      <div>
-         <h3><a href="{{website}}">{{pizzeria}}</a></h3>
-         <p>{{address}} {{city}}</p>
-      </div>
+         <li>
+           <a href="{{properties.website}}">{{properties.pizzeria}}</a>
+           <p>{{properties.address}} {{properties.city}}</p>
+         </li>
     </script>
     <title>Handlebars Example</title>
   </head>
   <body>
     <div class='container'>
+      <div class='panel panel-default'>
+        <div class='panel-heading'>
+          <h3>pizzerias!</h3>
+        </div>
+        <div class='panel-body'>
+          <ul class='pizzeria-list'></ul>
+        </div>
+      </div>
     </div>
   </body>
 </html>
@@ -24,7 +33,7 @@
     const template = $('#handlebars-demo').html();
     const templateScript = Handlebars.compile(template);
     const html = templateScript(data);
-    $('.container').append(html);
+    $('.pizzeria-list').append(html);
   }
 
   const buildTemplate = () => {
@@ -34,7 +43,7 @@
       url: 'https://pizza-test.herokuapp.com/api/v1/pizzerias',
       success: (data) => {
         console.log(data[0])
-        data.map((pizzeria) => { return renderTemplate(pizzeria.properties); });
+        data.map((pizzeria, i) => { return renderTemplate(pizzeria); });
       }
     })
   };
