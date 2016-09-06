@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="base.css" rel="stylesheet">
+    <!-- <link href="base.scss" rel="stylesheet"> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -17,15 +17,20 @@
   </head>
   <body>
     <div class='container'>
-      <div class='panel panel-default'>
-        <div class='panel-heading'>
-          <h3>pizzerias!</h3>
-        </div>
-        <div class='panel-body'>
-          <ul class='pizzeria-list'></ul>
+      <div class='col-md-9'>
+      </div>
+      <div class='col-md-3'>
+        <div class='panel panel-default'>
+          <div class='panel-heading'>
+            <h3>pizzerias!</h3>
+          </div>
+          <div class='panel-body'>
+            <ul class='pizzeria-list'></ul>
+          </div>
         </div>
       </div>
     </div>
+    <script src="/bundle.js"></script>
   </body>
 </html>
 <script>
